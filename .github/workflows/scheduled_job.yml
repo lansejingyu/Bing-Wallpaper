@@ -7,7 +7,7 @@ on:
     # 多个时间可以用多个 - cron: ... 添加
 
 jobs:
-  execute-script:            # 任务ID（可自定义）
+  execute-script: # 任务ID（可自定义）
     runs-on: ubuntu-latest   # 运行环境，一般用最新版
 
     steps:
