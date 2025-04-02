@@ -1,10 +1,14 @@
 name: Scheduled Python Job   # 工作流名称
 
 on:
+  # 定时触发（UTC时间，每天0点运行）
   schedule:
-    # 定时触发（UTC时间，每天0点运行）
-    - cron: '0 0 * * *'      # 每天 00:00 UTC
-    # 多个时间可以用多个 - cron: ... 添加
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+env:
+  # time zone
+  TZ: Asia/Shanghai
 
 jobs:
   execute-script: # 任务ID（可自定义）
@@ -29,7 +33,7 @@ jobs:
 
       # 步骤4：运行Python脚本
       - name: Run Script
-        run: python main.py      # 路径要正确！（例如：src/main.py）
+        run: python -u main.py --all --overwrite      # 路径要正确！（例如：src/main.py）
 
       # 步骤5（可选）：推送生成的文件到仓库
       # 追加推送文件的步骤
