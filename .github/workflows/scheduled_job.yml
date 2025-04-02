@@ -1,14 +1,10 @@
 name: Scheduled Python Job   # 工作流名称
 
 on:
-  # 定时触发（UTC时间，每天0点运行）
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # UTC 时间的 0 点 (对应北京时间 08:00)
+      timezone: 'Asia/Shanghai'  # 指定时区生效
   workflow_dispatch:
-
-env:
-  # time zone
-  TZ: Asia/Shanghai
 
 jobs:
   execute-script: # 任务ID（可自定义）
