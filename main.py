@@ -4,7 +4,7 @@ import os
 
 
 def get_bing_wallpaper():
-	url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc=1614319565639&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160"
+	url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=4&n=1&nc=1614319565639&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160"
 
 	headers = {
 		'Cookie': 'MUID=3215B205599A658F1EB3A7C4584364E7; SRCHD=AF=NOFORM; SRCHHPGUSR=SRCHLANG=zh-Hans; SRCHUID=V=2&GUID=33C388394D304D3B8041F82DFA28E53D&dmnchg=1; SRCHUSR=DOB=20250401&DS=1; _EDGE_S=SID=37B6604DF2A26FD82814758FF38C6EE5&mkt=zh-CN; _EDGE_V=1; _SS=SID=37B6604DF2A26FD82814758FF38C6EE5; MUIDB=3215B205599A658F1EB3A7C4584364E7'
