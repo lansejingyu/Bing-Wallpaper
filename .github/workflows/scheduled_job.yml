@@ -48,19 +48,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git checkout -b auto-update-bing-$(date +%Y%m%d-%H%M%S)  # 按时间生成唯一临时分支名
+          git checkout -b auto-update-$(date +%s)  # 创建唯一临时分支
           git add Bing_Wallpaper_url.json
           git commit -m "Update Bing wallpapers" || echo "No changes to commit"
           git push origin HEAD
-      # 6. 创建 PR 并合并到主分支（如 main）
-      - name: Create Pull Request and Merge
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # 使用默认的 GitHub Token
-        run: |
-          BRANCH_NAME=$(git branch --show-current)
-          gh pr create \
-            --title "Automated Update: Bing Wallpapers ($(date +%Y-%m-%d))" \
-            --body "Automatically updated Bing wallpapers." \
-            --base master \
-            --head "$BRANCH_NAME"
-          gh pr merge --auto --merge "$BRANCH_NAME"
