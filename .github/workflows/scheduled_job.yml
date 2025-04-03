@@ -14,8 +14,6 @@ jobs:
       # 步骤1：拉取仓库代码
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          ref: '2025.4.5'  # 这里指定 tag 名称
 
       # 步骤2：设置Python环境
       - name: Set up Python 3.10
