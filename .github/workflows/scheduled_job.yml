@@ -3,7 +3,7 @@ name: Scheduled Python Job   # 工作流名称
 on:
   schedule:
     - cron: '0 0 * * *'  # UTC 时间的 0 点 (对应北京时间 08:00)
-      timezone: 'Asia/Shanghai'  # 指定时区生效
+
   workflow_dispatch:
 
 jobs:
