@@ -14,8 +14,6 @@ jobs:
       # 步骤1：拉取仓库代码
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 获取所有历史记录，用于生成变更日志
 
       # 步骤2：设置Python环境
       - name: Set up Python 3.10
@@ -42,16 +40,3 @@ jobs:
           git commit -m "Update Bing wallpapers" || echo "No changes to commit"   # 忽略无变化的错误
           git push
         # 需要允许GitHub Actions写入仓库权限
-
-      # 步骤6：创建Release
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub会自动提供这个token
-        with:
-          tag_name: release-v$(date +'%Y%m%d-%H%M%S')  # 使用日期时间作为tag
-          release_name: Release $(date +'%Y-%m-%d')
-          draft: false
-          prerelease: false
-          generate_release_notes: true  # 自动生成发布说明
