@@ -63,19 +63,25 @@ def save_to_json(new_data):
 	except (json.JSONDecodeError, FileNotFoundError):
 		existing_data = []
 
-	# 追加新数据
-	existing_data.append(new_data)
+	# 追加新数据--添加到最后面
+	# existing_data.append(new_data)
+
+	# 添加新数据到开头（而不是追加到结尾）
+	existing_data.insert(0, new_data)  # 用insert方法插入到首位
+	# """ 或者也可以用：
+	# existing_data = [new_data] + existing_data  # 拼接方式
+	# """
 
 	# 写回文件
 	with open(json_file, 'w', encoding='utf-8') as f:
 		json.dump(existing_data, f, ensure_ascii=False, indent=4)
-	print(f"数据已追加到 {json_file}")
+	print(f"数据已添加 {json_file}")
 
 
 if __name__ == "__main__":
 	wallpaper_data = get_bing_wallpaper()
 	if wallpaper_data:
 		save_to_json(wallpaper_data)
-		print("最新壁纸数据:", wallpaper_data)
+		print("最新壁纸数据已更新:", wallpaper_data)
 	else:
 		print("获取壁纸失败")
