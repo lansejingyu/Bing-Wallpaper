@@ -36,7 +36,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add Bing-Wallpaper_url.json
+          git add Bing_Wallpaper_url.json
           git commit -m "Update Bing wallpapers" || echo "No changes to commit"   # 忽略无变化的错误
           git push
         # 需要允许GitHub Actions写入仓库权限
