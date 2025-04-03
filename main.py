@@ -49,7 +49,7 @@ def get_bing_wallpaper():
 
 
 def save_to_json(new_data):
-	json_file = 'Bing.json'
+	json_file = 'Bing-Wallpaper_info.json'
 
 	# 如果文件不存在，创建初始结构
 	if not os.path.exists(json_file):
