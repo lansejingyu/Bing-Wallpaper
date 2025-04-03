@@ -78,50 +78,10 @@ def save_to_json(new_data):
 	print(f"数据已添加 {json_file}")
 
 
-# 刷新 jsdelivr 远程拉取的缓存
-def refresh_cache():
-	url = "https://purge.jsdelivr.net/gh/lansejingyu/Bing-Wallpaper@master/Bing-Wallpaper_info.json"
-
-	payload = {}
-	headers = {
-		'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-		'accept-language': 'zh-CN,zh;q=0.9',
-		'dnt': '1',
-		'priority': 'u=0, i',
-		'sec-ch-ua': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"',
-		'sec-ch-ua-mobile': '?0',
-		'sec-ch-ua-platform': '"Windows"',
-		'sec-fetch-dest': 'document',
-		'sec-fetch-mode': 'navigate',
-		'sec-fetch-site': 'none',
-		'sec-fetch-user': '?1',
-		'sec-gpc': '1',
-		'upgrade-insecure-requests': '1',
-		'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
-		'Cookie': 'CONSENT=YES+'
-	}
-
-	try:
-		response = requests.get(url, headers=headers, data=payload)
-		response.raise_for_status()  # 检查HTTP状态码
-		print("缓存刷新成功")
-
-		return response.text  # 返回响应内容
-
-	except requests.exceptions.RequestException as e:
-		print("缓存刷新失败:", e)
-		return str(e)  # 返回错误信息
-
-
 if __name__ == "__main__":
 	wallpaper_data = get_bing_wallpaper()
 	if wallpaper_data:
 		save_to_json(wallpaper_data)
 		print("最新壁纸数据已更新:", wallpaper_data)
-
-		# 执行缓存刷新并打印结果
-		cache_result = refresh_cache()
-		print("缓存刷新结果:\n", cache_result)
-
 	else:
 		print("获取壁纸失败")
