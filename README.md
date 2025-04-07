@@ -2,9 +2,9 @@
 个人博客图库 Bing Wallpaper-Bing每日壁纸
 
 Bing壁纸官方 API 的接口：  
-1.分辨率：1920*1080  
+1.分辨率：1920×1080  
 https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN  
-2.分辨率：3840*2160  
+2.分辨率：3840×2160  
 https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc=1614319565639&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160  
 
 主要有 format、idx、n、mkt 四个参数：  
